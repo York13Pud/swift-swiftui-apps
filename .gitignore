@@ -88,3 +88,8 @@ fastlane/test_output
 # https://github.com/johnno1962/injectionforxcode
 
 iOSInjectionProject/
+
+# Custom ignored files and folders section:
+.DS_Store
+applications/user-interface-only/AppleClock/references/apple-clock-degisn.fig
+applications/user-interface-only/AppleClock/references/apple-clock-recording.mov

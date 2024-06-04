@@ -3,9 +3,14 @@
 import SwiftUI
 
 struct WorldClockView: View {
-       
+    
     let title: String
     @State private var locations = [WorldClock]()
+    
+    // This function is used to remove a row:
+    func removeRows(at offsets: IndexSet) {
+        locations.remove(atOffsets: offsets)
+    }
        
     var body: some View {
         
@@ -37,11 +42,16 @@ struct WorldClockView: View {
                                     .fontWeight(.light)
                                     .font(.system(size: 56))
                             }
+                            
                         }
                         .padding([.top, .bottom], 15)
                         
                         // Align the text so that it is inline with the edit button and navbar title:
                         .listRowInsets(EdgeInsets(top: 0, leading: 15, bottom: 0, trailing: 15))
+                        
+                        
+                    }.onDelete(perform: removeRows)
+                    
                         
                     }
                     .listStyle(.plain)
@@ -49,25 +59,37 @@ struct WorldClockView: View {
                 
                 // Sets the title of the view
                 .navigationTitle(title)
+                .overlay() {
+                    if locations.isEmpty {
+                        ContentUnavailableView {
+                            // No title
+                        } description: {
+                            Text("No World Clocks")
+                                .font(.system(size: 28).weight(.light))
+                        }
+                    }
+                }
                 
                 // Specify any buttons that need to be added to the navigation bar:
                 .toolbar {
                     ToolbarItem(placement: .topBarLeading) {
-                        Button("Edit") {
-                            // Add edit function code here
-                        }
+                        EditButton()
+                        //                        Button("Edit") {
+                        //                            // Add edit function code here
+                        //                        }
                     }
                     
                     ToolbarItem(placement: .topBarTrailing) {
                         Button("", systemImage: "plus") {
-                            // Add add function code here
+                            locations.append(zoneOne)
+                            locations.append(zoneTwo)
                         }
                     }
                 }
             }
         }
     }
-}
+
 
 #Preview {
     WorldClockView(title: "Alarms Preview")

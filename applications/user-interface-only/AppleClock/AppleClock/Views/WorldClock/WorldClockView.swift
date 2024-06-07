@@ -27,6 +27,7 @@ struct WorldClockView: View {
                     }
                     .onDelete(perform: removeRows)
                     .onMove { locations.move(fromOffsets: $0, toOffset: $1) }
+                    .listRowSeparatorTint(.gray)
                 }
                 .listStyle(.plain)
             }

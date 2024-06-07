@@ -37,6 +37,7 @@ struct WorldClockLocationView: View {
             }
         }
         .padding([.top, .bottom], 15)
+        .frame(minHeight: 100)
     
         // Align the text so that it is inline with the edit button and navbar title:
         .listRowInsets(EdgeInsets(top: 0, leading: 15, bottom: 0, trailing: 15))

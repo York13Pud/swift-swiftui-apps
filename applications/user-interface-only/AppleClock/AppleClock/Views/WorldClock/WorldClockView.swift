@@ -49,8 +49,10 @@ struct WorldClockView: View {
             
             // Specify any buttons that need to be added to the navigation bar:
             .toolbar {
-                ToolbarItem(placement: .topBarLeading) {
-                    EditButton()
+                if !locations.isEmpty {
+                    ToolbarItem(placement: .topBarLeading) {
+                        EditButton()
+                    }
                 }
                 
                 ToolbarItem(placement: .topBarTrailing) {

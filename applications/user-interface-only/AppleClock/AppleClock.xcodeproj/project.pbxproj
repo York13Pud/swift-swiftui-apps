@@ -15,6 +15,9 @@
 		28C0BC062BFCD1EB00D26036 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28C0BC052BFCD1EB00D26036 /* Assets.xcassets */; };
 		28C0BC092BFCD1EB00D26036 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28C0BC082BFCD1EB00D26036 /* Preview Assets.xcassets */; };
 		28C82DDB2C0E33B0008F11ED /* WorldClockModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C82DDA2C0E33B0008F11ED /* WorldClockModel.swift */; };
+		28CEA8722C1332A60061933D /* AlarmsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CEA8712C1332A60061933D /* AlarmsView.swift */; };
+		28CEA8742C1333960061933D /* AlarmsAlarmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CEA8732C1333960061933D /* AlarmsAlarmModel.swift */; };
+		28CEA8762C1333B10061933D /* AlarmsAlarmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CEA8752C1333B10061933D /* AlarmsAlarmView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +31,9 @@
 		28C0BC052BFCD1EB00D26036 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		28C0BC082BFCD1EB00D26036 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		28C82DDA2C0E33B0008F11ED /* WorldClockModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldClockModel.swift; sourceTree = "<group>"; };
+		28CEA8712C1332A60061933D /* AlarmsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmsView.swift; sourceTree = "<group>"; };
+		28CEA8732C1333960061933D /* AlarmsAlarmModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmsAlarmModel.swift; sourceTree = "<group>"; };
+		28CEA8752C1333B10061933D /* AlarmsAlarmView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmsAlarmView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +60,9 @@
 		28680D232C05EDF5006D1DD8 /* Alarms */ = {
 			isa = PBXGroup;
 			children = (
+				28CEA8712C1332A60061933D /* AlarmsView.swift */,
+				28CEA8732C1333960061933D /* AlarmsAlarmModel.swift */,
+				28CEA8752C1333B10061933D /* AlarmsAlarmView.swift */,
 			);
 			path = Alarms;
 			sourceTree = "<group>";
@@ -199,12 +208,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				28CEA8742C1333960061933D /* AlarmsAlarmModel.swift in Sources */,
 				28680D2D2C0606FF006D1DD8 /* Constants.swift in Sources */,
 				28C82DDB2C0E33B0008F11ED /* WorldClockModel.swift in Sources */,
 				28C0BC042BFCD1EA00D26036 /* ContentView.swift in Sources */,
 				28680D272C05EE53006D1DD8 /* WorldClockView.swift in Sources */,
 				28C0BC022BFCD1EA00D26036 /* AppleClockApp.swift in Sources */,
 				28680D2A2C05EE71006D1DD8 /* WorldClockLocationView.swift in Sources */,
+				28CEA8762C1333B10061933D /* AlarmsAlarmView.swift in Sources */,
+				28CEA8722C1332A60061933D /* AlarmsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

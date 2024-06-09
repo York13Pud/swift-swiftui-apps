@@ -5,11 +5,11 @@ import SwiftUI
 struct AlarmsView: View {
     
     let title: String
-    @State private var locations = [WorldClock]()
+    @State private var alarms = [Int]()
     
     // This function is used to remove a row:
     func removeRows(at offsets: IndexSet) {
-        locations.remove(atOffsets: offsets)
+        alarms.remove(atOffsets: offsets)
     }
     
     var body: some View {
@@ -20,14 +20,43 @@ struct AlarmsView: View {
                 backgroundColour
                     .ignoresSafeArea()
                 
+                
+                
                 // Put the main content of the view here:
                 List {
-                    ForEach(locations, id: \.id) { location in
-                        WorldClockLocationView(location: location.location, time: location.time, timezone: location.timezone)
+                    Section {
+                        HStack {
+                            Text("No Alarm")
+                                .foregroundStyle(.gray)
+                            
+                            Spacer()
+                            
+                            Button("SET UP") {
+                            }
+                            .padding(EdgeInsets(top: 8, leading: 11, bottom: 8, trailing: 11))
+                            .background(Color.gray.opacity(0.3), in: Capsule())
+                            .fontWeight(.bold)
+                            .foregroundStyle(.accent)
+                        }
+                    } header: {
+                        Label("Sleep | Wake Up", systemImage: "bed.double.fill")
+                            .font(.system(size: 24, weight: .bold))
+                            .foregroundStyle(.white)
                     }
-                    .onDelete(perform: removeRows)
-                    .onMove { locations.move(fromOffsets: $0, toOffset: $1) }
-                    .listRowSeparatorTint(.gray)
+                    
+                    Section {
+                        
+                        ForEach(alarms, id: \.self) { alarm in
+//                            WorldClockLocationView(location: location.location, time: location.time, timezone: location.timezone)
+                        }
+                        .onDelete(perform: removeRows)
+                        .onMove { alarms.move(fromOffsets: $0, toOffset: $1) }
+                        .listRowSeparatorTint(.gray)
+                    } header: {
+                        Text("Other")
+                            .font(.system(size: 24, weight: .bold))
+                            .foregroundStyle(.white)
+                    }
                 }
                 .listStyle(.plain)
             }
@@ -37,11 +66,11 @@ struct AlarmsView: View {
             
             // Check to see if the locations array is empty:
             .overlay() {
-                if locations.isEmpty {
+                if alarms.isEmpty {
                     ContentUnavailableView {
                         // No title
                     } description: {
-                        Text("No World Clocks")
+                        Text("No Alarms")
                             .font(.system(size: 28).weight(.light))
                     }
                 }
@@ -49,7 +78,7 @@ struct AlarmsView: View {
             
             // Specify any buttons that need to be added to the navigation bar:
             .toolbar {
-                if !locations.isEmpty {
+                if !alarms.isEmpty {
                     ToolbarItem(placement: .topBarLeading) {
                         EditButton()
                     }
@@ -57,8 +86,8 @@ struct AlarmsView: View {
                 
                 ToolbarItem(placement: .topBarTrailing) {
                     Button("", systemImage: "plus") {
-                        locations.append(zoneOne)
-                        locations.append(zoneTwo)
+//                        locations.append(zoneOne)
+//                        locations.append(zoneTwo)
                     }
                 }
             }
@@ -68,6 +97,6 @@ struct AlarmsView: View {
 
 
 #Preview {
-    WorldClockView(title: "Alarms Preview")
+    AlarmsView(title: "Alarms Preview")
        .environment(\.colorScheme, .dark) // Added to force dark mode in preview window.
 }

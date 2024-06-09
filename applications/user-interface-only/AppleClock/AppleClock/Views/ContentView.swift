@@ -12,9 +12,9 @@ struct ContentView: View {
             case 1:
                 "Alarms"
             case 2:
-                "Stopwatch"
+                ""
             case 3:
-                "Timers"
+                ""
             default:
                 ""
         }
@@ -29,8 +29,8 @@ struct ContentView: View {
                 }.tag(0)
                 
                 // Tab 1
-                Text("Testing").tabItem {
-                    Label("Alarms", systemImage: "alarm")
+                AlarmsView(title: titleText).tabItem {
+                    Label("Alarms", systemImage: "globe")
                 }.tag(1)
                 
                 // Tab 2
